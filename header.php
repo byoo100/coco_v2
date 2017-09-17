@@ -37,35 +37,53 @@
 
 				<!-- drop-down -->
 
-			</div>
+			</div><!-- .nav-header -->
 
-
-			<nav id="site-navigation" class="nav-left">
+			<nav id="site-navigation">
 				<?php
 					wp_nav_menu( array(
 						'theme_location' => 'main-menu',
-						'menu_id'        => 'primary-menu',
+						'container'			 => 'ul',
+						'menu_id'        => 'primay-menu',
+						'menu_class'		 => 'nav-left'
 					) );
 				?>
 			</nav><!-- #site-navigation -->
 
 
+
+
 			<div id="side-navigation" class="nav-right">
-				<?php
-					if( function_exists('pll_the_languages') ) :
 
-						$args = array(
-							'dropdown' => 1,
-							'show_names'	=> 1,
-						);
+				<ul class="socialmedia">
+					<li>
+						<a href="www.facebook.com" class="social-facebook" target="_blank">
+							<span class="screen-reader-text">Facebook</span>
+						</a>
+					</li>
+				</ul><!-- .socialmedia -->
 
-						pll_the_languages($args);
+				<ul class="language-switch">
+					<li>
+						<span class="screen-reader-text">Language Toggle</span>
+						<div id="language-toggle"></div>
 
-					endif;
-				?>
-			</div>
+						<ul id="language-dropdown">
+							<?php
+								if( function_exists('pll_the_languages') ) :
 
-		</div>
+									$args = array('show_names'	=> 1,);
+									pll_the_languages($args);
+
+								endif;
+							?>
+						</ul>
+					</li>
+				</ul><!-- .language-switch -->
+
+			</div><!-- #site-navigation -->
+
+		</div><!-- .nav-container -->
 
 	</header><!-- #masthead -->
 

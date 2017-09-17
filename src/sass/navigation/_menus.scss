@@ -1,107 +1,81 @@
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
+.nav-container{
+	@include site-container();
+	padding: 0 1em;
 
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
+	ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+		a{ border-bottom: none; }
+	}
 
-		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
+	.nav-header{
+		.site-branding{
+			.site-title{
+				margin: 0;
 
-			ul {
-				left: -999em;
-				top: 0;
+				a{
+					border-bottom: none;
+				}//a
+			}//.site-title
+		}//.site-branding
+
+
+	}//.nav-header
+
+
+
+	#site-navigation{
+
+		#primary-menu{
+
+			li{
+				display: block;
 			}
+		}//#primary-menu
+	}//#site-navigation
 
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
+
+
+	#side-navigation{
+
+		ul{
+			display: inline-block;
+
+			li{ display: inline-block; }
+		}
+
+		.socialmedia{
+
+			 a{
+				 font-family: $font__awesome;
+				 &.social-facebook:before{ content:'\f09a'; }
+				 &.social-github:before{ content:'\f113'; }
+				 &.social-instagram:before{ content:'\f16d'; }
+				 &.social-linkedin:before{ content:'\f0e1'; }
+			 }
+		}//.socialmedia
+
+
+		.language-switch{
+
+			#language-toggle{
+				display: inline-block;
+				font-family: $font__awesome;
+
+				&:before{
+					display:inline-block;
+					content:'\f1ab';
 				}
-			}
 
-			a {
-				width: 200px;
-			}
+			}//#language-toggle
 
-			:hover > a,
-			.focus > a {
-			}
+			#language-dropdown{
 
-			a:hover,
-			a.focus {
-			}
-		}
+				li{ }
+			}//#language-dropdown
+		}//.language-switch
 
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
 
-	li {
-		float: left;
-		position: relative;
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-	.site-main & {
-		margin: 0 0 1.5em;
-		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
-	}
-}
+	}//#side-navigation
+}//.nav-container

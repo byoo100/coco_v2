@@ -1,2 +1,32 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
+
+
+$screen-xs: 30rem; //480px
+$screen-sm: 48rem; //768px
+$screen-md: 62rem; //992px
+$screen-lg: 75rem; //1200px
+$screen-xl: 100rem; //1600px
+
+@mixin site-container(){
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  //tablet
+  @media screen and (min-width: $screen-sm){
+    max-width: 45rem; //720px
+  }
+  //desktop-md
+  @media screen and (min-width: $screen-md){
+    max-width: 58.75rem; //940px
+  }
+  //desktop-lg
+  @media screen and (min-width: $screen-lg){
+    max-width: 71.25rem; //1140px
+  }
+  //desktop-xl
+  @media screen and (min-width: $screen-xl){
+    max-width: 96rem; //1536px
+  }
+}//@mixin site-container
