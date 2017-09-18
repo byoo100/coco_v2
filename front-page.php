@@ -33,10 +33,16 @@ include_once('page_data/data-frontpage.php');
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
+      <section id="welcome">
+
+        <object type="image/svg+xml" class="coco-logo" data=<?php echo get_template_directory_uri() . "/dist/images/coco_v2.svg" ?> alt="" />
+
+      </section>
+
 		<?php
 
     echo $data['welcome']['title'];
-    
+
 
 		if ( have_posts() ) :
 
