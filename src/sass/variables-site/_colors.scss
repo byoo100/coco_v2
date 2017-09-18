@@ -1,13 +1,11 @@
 //https://color.adobe.com/Mon-th%C3%A8me-Color-color-theme-9942149/?showPublished=true
 
 //Theme Colors
-$color_dark_blue: #031727;
+$color_dark_blue: lighten(#031727, 7.5%);
 $color_dark_teal1: #126872;
 $color_dark_teal2: #0B877D;
 $color_teal: #18C29C;
 $color_teal_bright: #88F9D4;
-
-
 
 
 
@@ -32,4 +30,5 @@ $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
 
-$color__nav_background: lighten($color_dark_blue, 7.5%);
+$color__nav_background: $color_dark_teal1;
+//$color__nav_background: lighten($color_dark_blue, 7.5%);

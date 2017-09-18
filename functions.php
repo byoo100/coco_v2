@@ -120,14 +120,14 @@ function coco_v2_scripts() {
 	wp_enqueue_style( 'coco_v2-info', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'coco_v2-style', get_template_directory_uri() . '/dist/style.min.css' );
-	wp_enqueue_style( 'coco_v2-fonts', 'https://fonts.googleapis.com/css?family=Roboto:400,400i,700' );
+	wp_enqueue_style( 'coco_v2-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,700' );
 	wp_enqueue_style( 'coco_v2-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 
 
 	wp_deregister_script( 'jquery' );
   wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
   wp_enqueue_script( 'jquery' );
-	
+
 
 	wp_enqueue_script( 'coco_v2-scripts', get_template_directory_uri() . '/dist/bundle.min.js', array(), '20151215', true );
 

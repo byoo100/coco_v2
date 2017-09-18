@@ -25,7 +25,7 @@ if (function_exists('pll_current_language')) :
 endif;
 
 
-include_once('page_data/data-frontpage.php');
+include_once('page-data/data-frontpage.php');
 
 
 ?>
@@ -35,7 +35,29 @@ include_once('page_data/data-frontpage.php');
 
       <section id="welcome">
 
-        <object type="image/svg+xml" class="coco-logo" data=<?php echo get_template_directory_uri() . "/dist/images/coco_v2.svg" ?> alt="" />
+        <div class="home-container">
+
+          <object type="image/svg+xml" class="coco-logo" data=<?php echo get_template_directory_uri() . "/dist/images/coco_v2.svg" ?> alt=""></object>
+
+          <h1 class="welcome-title"><?php echo $data['welcome']['en']['title'] ?></h1>
+          <h3 class="welcome-subtitle"><?php echo $data['welcome']['en']['subtitle1'] ?></h3>
+          <h3 class="welcome-subtitle"><?php echo $data['welcome']['en']['subtitle2'] ?></h3>
+
+        </div>
+
+      </section>
+
+
+      <section id="location">
+
+        <div class="home-container">
+
+          <h1 class="location-title"><?php echo $data['location']['en']['title'] ?></h1>
+          <h3 class="location-address"><?php echo $data['location']['en']['address1'] ?></h3>
+          <h3 class="location-address"><?php echo $data['location']['en']['address2'] ?></h3>
+          <p class="location-description"><?php echo $data['location']['en']['description'] ?></p>
+
+        </div>
 
       </section>
 

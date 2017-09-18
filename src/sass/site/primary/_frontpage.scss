@@ -1,13 +1,47 @@
+.home-container{
+  @include site-container;
+}//.home-container
+
 
 #welcome{
   display: block;
-  background: $color_dark_teal1;
-  height: 50em;
+  background: $color_dark_blue;
+
+  .home-container{
+    padding: 5em 0;
+  }
 
   .coco-logo{
     display: block;
-    margin: 0 auto;
-    width: 18.75em;
-    height: 18.75em;
+    margin: 0 auto 1em;
+    width: 16em;
+    height: 16em;
   }
+
+  .welcome-title,
+  .welcome-subtitle{
+    color: #f2f2f2;
+    text-align: center;
+  }
+
+  .welcome-title{
+    display: block;
+    font-size: 3em;
+    margin: 0 0 0.5em;
+    overflow-y: auto;
+
+    &:after{
+      display: block;
+      content:'';
+      width: 18.75rem;
+      height: 3px;
+      margin: 0.3em auto;
+      background: #f2f2f2;
+    }
+  }//.welcome-title
+
+  .welcome-subtitle{
+    margin: 0;
+  }
+
 }//#welcome
