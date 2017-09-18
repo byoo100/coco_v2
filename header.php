@@ -27,63 +27,80 @@
 
 	<header id="masthead" class="site-header">
 
-		<div class="nav-container">
-
+		<div class="masthead-container">
 
 			<div class="nav-header">
 				<div class="site-branding">
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				</div><!-- .site-branding -->
 
-				<!-- drop-down -->
+				<button type="button" class="mobile-open collapsed">
+	        <span class="screen-reader-text">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
 
 			</div><!-- .nav-header -->
 
+
+
+
 			<nav id="site-navigation">
-				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'main-menu',
-						'container'			 => 'ul',
-						'menu_id'        => 'primay-menu',
-						'menu_class'		 => 'nav-left'
-					) );
-				?>
+
+				<span id="mobile-close">
+					<span class="icon-bar icon-left"></span>
+	        <span class="icon-bar icon-right"></span>
+				</span>
+
+				<div class="nav-container">
+
+					<?php
+						wp_nav_menu( array(
+							'theme_location' => 'main-menu',
+							'container'			 => 'ul',
+							'menu_id'        => 'primary-menu',
+							'menu_class'		 => 'nav-left'
+						) );
+					?>
+
+					<div id="side-menu" class="nav-right">
+
+						<ul class="socialmedia">
+							<li>
+								<a href="https://www.facebook.com" class="social-facebook" target="_blank">
+									<span class="screen-reader-text">Facebook</span>
+								</a>
+							</li>
+						</ul><!-- .socialmedia -->
+
+						<ul class="language-switch">
+							<li>
+								<span class="screen-reader-text">Language Toggle</span>
+								<div id="language-toggle"></div>
+
+								<ul id="language-dropdown" class="collapsed">
+									<?php
+										if( function_exists('pll_the_languages') ) :
+
+											$args = array('show_names'	=> 1,);
+											pll_the_languages($args);
+
+										endif;
+									?>
+								</ul>
+							</li>
+						</ul><!-- .language-switch -->
+
+					</div><!-- #side-menu -->
+
+				</div><!-- .nav-container -->
+
 			</nav><!-- #site-navigation -->
 
+		</div><!-- .masthead-container -->
 
-
-
-			<div id="side-navigation" class="nav-right">
-
-				<ul class="socialmedia">
-					<li>
-						<a href="www.facebook.com" class="social-facebook" target="_blank">
-							<span class="screen-reader-text">Facebook</span>
-						</a>
-					</li>
-				</ul><!-- .socialmedia -->
-
-				<ul class="language-switch">
-					<li>
-						<span class="screen-reader-text">Language Toggle</span>
-						<div id="language-toggle"></div>
-
-						<ul id="language-dropdown">
-							<?php
-								if( function_exists('pll_the_languages') ) :
-
-									$args = array('show_names'	=> 1,);
-									pll_the_languages($args);
-
-								endif;
-							?>
-						</ul>
-					</li>
-				</ul><!-- .language-switch -->
-
-			</div><!-- #site-navigation -->
-
-		</div><!-- .nav-container -->
+		<div id="dark-overlay"></div>
 
 	</header><!-- #masthead -->
 
