@@ -1,9 +1,22 @@
+@mixin header-underline{
+  &:after{
+    display: block;
+    content:'';
+    width: 18.75rem;
+    height: 3px;
+    margin: 0.3em auto;
+  }
+}
+
+
 .home-container{
   @include site-container;
 }//.home-container
 
 
-#welcome{
+
+
+#home-welcome{
   display: block;
   background: $color_dark_blue;
 
@@ -14,29 +27,27 @@
   .coco-logo{
     display: block;
     margin: 0 auto 1em;
-    width: 16em;
-    height: 16em;
+    width: 10em;
+
+    @media screen and (min-width: $screen-md){ width: 13em; }
+    @media screen and (min-width: $screen-lg){ width: 16em; }
   }
 
   .welcome-title,
   .welcome-subtitle{
-    color: #f2f2f2;
+    color: $color_white;
     text-align: center;
   }
 
   .welcome-title{
+    @include header-underline;
     display: block;
     font-size: 3em;
     margin: 0 0 0.5em;
     overflow-y: auto;
 
     &:after{
-      display: block;
-      content:'';
-      width: 18.75rem;
-      height: 3px;
-      margin: 0.3em auto;
-      background: #f2f2f2;
+      background: $color_white;
     }
   }//.welcome-title
 
@@ -45,3 +56,91 @@
   }
 
 }//#welcome
+
+
+
+
+#home-location{
+  background: #f0f0f0;
+
+  .home-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5em 0;
+
+    @media screen and (min-width: $screen-md){
+      flex-wrap: nowrap;
+    }
+
+    .location-info,
+    #google-map{
+      flex: 0 0 100%;
+      text-align: center;
+
+      @media screen and (min-width: $screen-md){
+        flex: 0 0 50%;
+      }
+    }
+
+    .location-info{
+      padding: 0 2em;
+
+      .location-title{
+        @include header-underline;
+
+        &:after{
+          background: $color_black;
+        }
+      }
+    }//.location-info
+
+    #google-map{
+      width: 100%;
+      min-height: 18.75rem;
+      padding: 0 2em;
+    }//#google-map
+
+  }//.home-container
+}//#location
+
+
+
+#home-about{
+
+  #f1_container {
+    position: relative;
+    margin: 10px auto;
+    width: 450px;
+    height: 281px;
+    z-index: 1;
+  }
+  #f1_container {
+    perspective: 1000;
+  }
+  #f1_card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+  }
+  #f1_container:hover #f1_card {
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 5px #aaa;
+  }
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .face.back {
+    display: block;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    background-color: #aaa;
+  }
+
+}//#home-about

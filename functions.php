@@ -131,6 +131,10 @@ function coco_v2_scripts() {
 
 	wp_enqueue_script( 'coco_v2-scripts', get_template_directory_uri() . '/dist/bundle.min.js', array(), '20151215', true );
 
+	wp_enqueue_script( 'coco_v2-googlemap', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w', array(), false, true );
+
+
+
 	wp_enqueue_script( 'coco_v2-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -165,3 +169,14 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+/**
+ * Google Map api key registry
+ *
+ * https://www.advancedcustomfields.com/resources/google-map/
+ */
+function my_acf_init() {
+	acf_update_setting('google_api_key', 'AIzaSyAFEVbGugLqPUEPC3Y9pr2uHOe5YXVud3w');
+}
+add_action('acf/init', 'my_acf_init');

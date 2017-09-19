@@ -33,7 +33,7 @@ include_once('page-data/data-frontpage.php');
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-      <section id="welcome">
+      <section id="home-welcome">
 
         <div class="home-container">
 
@@ -48,57 +48,67 @@ include_once('page-data/data-frontpage.php');
       </section>
 
 
-      <section id="location">
+      <section id="home-location">
 
         <div class="home-container">
 
-          <h1 class="location-title"><?php echo $data['location']['en']['title'] ?></h1>
-          <h3 class="location-address"><?php echo $data['location']['en']['address1'] ?></h3>
-          <h3 class="location-address"><?php echo $data['location']['en']['address2'] ?></h3>
-          <p class="location-description"><?php echo $data['location']['en']['description'] ?></p>
+          <div class="location-info">
+            <h1 class="location-title nowrap"><?php echo $data['location']['en']['title'] ?></h1>
+            <h5 class="location-address">
+              <div class="nowrap"><?php echo $data['location']['en']['address1'] ?></div>
+              <div><?php echo $data['location']['en']['address2'] ?></div>
+            </h5>
+            <p class="location-description"><?php echo $data['location']['en']['description'] ?></p>
+          </div>
 
+          <div id="google-map">
+            <?php
+              if(get_field('google_map')){
+                $location = get_field('google_map');
+                echo "<div class=acf-map>";
+                echo "<div class=marker data-lat=" . $location['lat'] . " data-lng=" . $location['lng'] . "></div>";
+                echo "</div>";
+              }
+        		?>
+          </div>
         </div>
 
       </section>
 
-		<?php
-
-    echo $data['welcome']['title'];
 
 
-		if ( have_posts() ) :
+      <section id="home-about">
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+        <div id="f1_container">
+        <div id="f1_card" class="shadow">
+          <div class="front face">
+            <img src="/images/Windows%20Logo.jpg"/>
+          </div>
+          <div class="back face center">
+            <p>This is nice for exposing more information about an image.</p>
+            <p>Any content can go here.</p>
+          </div>
+        </div>
+        </div>
 
-			<?php
-			endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+        <div class="home-container">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+          <div class="about-info">
+            <h1 class="about-title"><?php echo $data['about']['en']['title'] ?></h1>
+            <p class="about-text"><?php echo $data['about']['en']['text'] ?></p>
+          </div>
 
-			endwhile;
+          <div class="about-image">
 
-			the_posts_navigation();
+          </div>
+        </div>
 
-		else :
+      </section>
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
