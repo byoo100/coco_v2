@@ -33,19 +33,48 @@ include_once('page-data/data-frontpage.php');
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
+
       <section id="home-welcome">
 
         <div class="home-container">
-
           <object type="image/svg+xml" class="coco-logo" data=<?php echo get_template_directory_uri() . "/dist/images/coco_v2.svg" ?> alt=""></object>
 
-          <h1 class="welcome-title"><?php echo $data['welcome']['en']['title'] ?></h1>
-          <h3 class="welcome-subtitle"><?php echo $data['welcome']['en']['subtitle1'] ?></h3>
-          <h3 class="welcome-subtitle"><?php echo $data['welcome']['en']['subtitle2'] ?></h3>
+          <h1 class="welcome-title"><?php echo $data['welcome']['title']; ?></h1>
+          <h3 class="welcome-subtitle"><?php echo $data['welcome']['subtitle1'] ?></h3>
+          <h3 class="welcome-subtitle"><?php echo $data['welcome']['subtitle2'] ?></h3>
 
         </div>
 
       </section>
+
+
+
+
+      <section id="home-about">
+
+        <div class="home-container">
+
+          <div class="about-info">
+            <h1 class="home-title">
+              <?php if( $lang_KOR ){
+                echo $data['about']['kr']['title'];
+              } else {
+                echo $data['about']['en']['title'];
+              } ?>
+            </h1>
+            <p class="about-text">
+              <?php if( $lang_KOR ){
+                echo $data['about']['kr']['text'];
+              } else {
+                echo $data['about']['en']['text'];
+              } ?>
+            </p>
+          </div>
+        </div>
+
+      </section>
+
+
 
 
       <section id="home-location">
@@ -53,12 +82,31 @@ include_once('page-data/data-frontpage.php');
         <div class="home-container">
 
           <div class="location-info">
-            <h1 class="location-title nowrap"><?php echo $data['location']['en']['title'] ?></h1>
+            <h1 class="home-title nowrap">
+              <?php if( $lang_KOR ){
+                echo $data['location']['kr']['title'];
+                echo '<span class="title-translation">';
+                echo $data['location']['en']['title'];
+                echo '</span>';
+              } else {
+                echo $data['location']['en']['title'];
+              } ?>
+            </h1>
+
             <h5 class="location-address">
-              <div class="nowrap"><?php echo $data['location']['en']['address1'] ?></div>
-              <div><?php echo $data['location']['en']['address2'] ?></div>
+              <div class="nowrap"><?php echo $data['location']['address1'] ?></div>
+              <div><?php echo $data['location']['address2'] ?></div>
             </h5>
-            <p class="location-description"><?php echo $data['location']['en']['description'] ?></p>
+
+            <p class="location-description">
+              <?php if( $lang_KOR ){
+                echo $data['location']['kr']['description'];
+              } else {
+                echo $data['location']['en']['description'];
+              }
+              ?>
+            </p>
+
           </div>
 
           <div id="google-map">
@@ -77,31 +125,54 @@ include_once('page-data/data-frontpage.php');
 
 
 
-      <section id="home-about">
 
-        <div id="f1_container">
-        <div id="f1_card" class="shadow">
-          <div class="front face">
-            <img src="/images/Windows%20Logo.jpg"/>
-          </div>
-          <div class="back face center">
-            <p>This is nice for exposing more information about an image.</p>
-            <p>Any content can go here.</p>
-          </div>
-        </div>
-        </div>
-
+      <section id="home-resources">
 
         <div class="home-container">
 
-          <div class="about-info">
-            <h1 class="about-title"><?php echo $data['about']['en']['title'] ?></h1>
-            <p class="about-text"><?php echo $data['about']['en']['text'] ?></p>
-          </div>
+          <?php
+            $resources = array('resource1', 'resource2', 'resource3', 'resource4');
 
-          <div class="about-image">
+            for( $i=0; $i< count($resources); $i++ ) :
+              $source = $resources[$i];
 
-          </div>
+          ?>
+
+            <div class="resource-outter">
+
+              <div class="resource-inner shadow">
+
+                <div class="front face">
+
+                  <h3 class="resource-title">
+                    <?php if( $lang_KOR ){
+                      echo $data['resources']['kr'][$source]['title'];
+                      echo '<span class="title-translation">';
+                      echo $data['resources']['en'][$source]['title'];
+                      echo '</span>';
+                    } else {
+                      echo $data['resources']['en'][$source]['title'];
+                    } ?>
+
+                  </h3>
+
+                  <img src=<?php echo get_template_directory_uri() . '/dist/images/' . $source . '.jpg'?> />
+                </div>
+
+                <div class="back face center">
+                  <p>
+                    <?php if( $lang_KOR ){
+                      echo $data['resources']['kr'][$source]['text'];
+                    } else {
+                      echo $data['resources']['en'][$source]['text'];
+                    } ?>
+                </div>
+              </div>
+            </div>
+
+          <?php endfor; ?>
+
+
         </div>
 
       </section>
