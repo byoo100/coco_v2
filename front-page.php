@@ -134,7 +134,6 @@ include_once('page-data/data-frontpage.php');
             $resources = array('resource1', 'resource2', 'resource3', 'resource4');
 
             for( $i=0; $i< count($resources); $i++ ) :
-              $source = $resources[$i];
 
           ?>
 
@@ -146,25 +145,38 @@ include_once('page-data/data-frontpage.php');
 
                   <h3 class="resource-title">
                     <?php if( $lang_KOR ){
-                      echo $data['resources']['kr'][$source]['title'];
+                      echo $data['resources']['kr'][$resources[$i]]['title'];
                       echo '<span class="title-translation">';
-                      echo $data['resources']['en'][$source]['title'];
+                      echo $data['resources']['en'][$resources[$i]]['title'];
                       echo '</span>';
                     } else {
-                      echo $data['resources']['en'][$source]['title'];
+                      echo $data['resources']['en'][$resources[$i]]['title'];
                     } ?>
 
                   </h3>
 
-                  <img src=<?php echo get_template_directory_uri() . '/dist/images/' . $source . '.jpg'?> />
+
+                  <?php
+                    $imgLocation = get_template_directory_uri() . '/dist/images/';
+
+                    $image_set = '<img src="%2$s" srcset="%1$s %2$s"></img>';
+
+                    $image_set = sprintf( $image_set,
+                      "{$imgLocation}{$resources[$i]}@xs.jpg 300w,",
+                      "{$imgLocation}{$resources[$i]}@sm.jpg 768w"
+          					);
+
+                    echo $image_set;
+                  ?>
+
                 </div>
 
                 <div class="back face center">
                   <p>
                     <?php if( $lang_KOR ){
-                      echo $data['resources']['kr'][$source]['text'];
+                      echo $data['resources']['kr'][$resources[$i]]['text'];
                     } else {
-                      echo $data['resources']['en'][$source]['text'];
+                      echo $data['resources']['en'][$resources[$i]]['text'];
                     } ?>
                 </div>
               </div>

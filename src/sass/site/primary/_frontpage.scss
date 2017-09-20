@@ -143,13 +143,14 @@
       @include clearfix();
       position: relative;
       float: left;
-      width: 100%;
+      width: 96%;
       height: 100%;
-      padding: 1em;
+      margin: 2%;
       z-index: 1;
 
       @media screen and (min-width: $screen-md){
-        width: 50%;
+        width: 48%;
+        margin: 1%;
       }
 
       .resource-inner {
