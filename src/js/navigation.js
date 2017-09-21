@@ -4,12 +4,18 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
+
+const ScrollMagic = require('scrollmagic');
+const ScrollScene = require('scrollmagic');
+
 ( function($) {
 
 	const $mobileOpen = $( '.mobile-open' );
 	const $mobileClose = $( '#mobile-close' );
 	const $darkOverlay = $( '#dark-overlay' );
+
 	const $navigation = $( '#site-navigation' );
+	const $navLinks = $( '#primary-menu a' );
 
 	const $langToggle = $( '#language-toggle' );
 	const $langDropDown = $( '#language-dropdown' );
@@ -33,6 +39,18 @@
 	$langToggle.click(() => {
 		$langDropDown.toggleClass('collapsed');
 	});
+
+
+	// init controller
+
+	var controller = new ScrollMagic.Controller();
+
+	var pin = new ScrollMagic.Scene({
+		triggerElement: "#home-location",
+	}).setPin('#masthead')
+		.addTo(controller)
+
+
 
 
 } )(jQuery);

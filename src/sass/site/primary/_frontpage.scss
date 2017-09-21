@@ -32,6 +32,7 @@
 
 
 #home-welcome{
+  @include clearfix();
   display: block;
   background: $color_dark_blue;
 
@@ -74,7 +75,7 @@
 
 
 #home-about{
-
+  @include clearfix();
 
   .home-container{
     padding: 5em 1em;
@@ -90,6 +91,7 @@
 
 
 #home-location{
+  @include clearfix();
   background: #f0f0f0;
 
   .home-container{
