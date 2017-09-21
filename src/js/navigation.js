@@ -46,11 +46,10 @@ const ScrollScene = require('scrollmagic');
 	var controller = new ScrollMagic.Controller();
 
 	var pin = new ScrollMagic.Scene({
-		triggerElement: "#home-location",
+		triggerElement: "#home-welcome",
+		triggerHook: "onEnter",
 	}).setPin('#masthead')
 		.addTo(controller)
-
-
 
 
 } )(jQuery);
