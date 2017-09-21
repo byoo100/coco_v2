@@ -111,12 +111,14 @@ include_once('page-data/data-frontpage.php');
 
           <div id="google-map">
             <?php
+            if( function_exists('get_field')){
               if(get_field('google_map')){
                 $location = get_field('google_map');
                 echo "<div class=acf-map>";
                 echo "<div class=marker data-lat=" . $location['lat'] . " data-lng=" . $location['lng'] . "></div>";
                 echo "</div>";
-              }
+              } else "";
+            }
         		?>
           </div>
         </div>
@@ -129,6 +131,8 @@ include_once('page-data/data-frontpage.php');
       <section id="home-resources">
 
         <div class="home-container">
+
+          <h1 class="home-title">RESOURCES</h1>
 
           <?php
             $resources = array('resource1', 'resource2', 'resource3', 'resource4');
@@ -178,6 +182,7 @@ include_once('page-data/data-frontpage.php');
                     } else {
                       echo $data['resources']['en'][$resources[$i]]['text'];
                     } ?>
+                  </p>
                 </div>
               </div>
             </div>

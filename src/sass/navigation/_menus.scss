@@ -212,6 +212,14 @@
 
 		}//.site-navigation
 
+	}//.masthead-container
+
+}//#masthead
+
+
+#masthead{
+
+	.masthead-container{
 
 		@media screen and (min-width: $screen-md){
 			//#masthead-container
@@ -293,7 +301,6 @@
 					}//#side-menu
 				}//.nav-container
 			}//#site-navigation
-
 
 		}//media query screen-lg
 

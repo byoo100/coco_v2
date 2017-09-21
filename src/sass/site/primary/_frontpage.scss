@@ -16,6 +16,7 @@
   .home-title{
     @include header-underline;
     margin: 0 0 1em;
+    text-align: center;
     word-break: keep-all;
 
     .title-translation{
@@ -81,12 +82,6 @@
     .about-info{
       max-width: 25em;
       margin: 0 auto;
-      text-align: center;
-
-      .about-title{
-        @include header-underline;
-        margin: 0 0 1em;
-      }
     }//.about-info
   }//.home-container
 }//#home-about
@@ -106,8 +101,8 @@
       flex-wrap: nowrap;
     }
 
-    .location-info,
-    #google-map{
+    #google-map,
+    .location-info{
       flex: 0 0 100%;
       text-align: center;
 
@@ -137,6 +132,14 @@
   .home-container{
     @include clearfix();
     padding: 5em 0;
+
+    .home-title{
+      color: #f2f2f2;
+
+      &:after{
+        background: #f2f2f2;
+      }
+    }
 
 
     .resource-outter {
@@ -195,11 +198,17 @@
             display: block;
             position: absolute;
             top:0;
-            transform: rotateY(180deg);
-            box-sizing: border-box;
-            color: white;
+            color: #f2f2f2;
             text-align: center;
-            background-color: #aaa;
+            box-sizing: border-box;
+            background-color: #333;
+            transform: rotateY(180deg);
+
+            p{
+              @include centerY;
+              padding: 0 1em;
+              margin: 0;
+            }
           }
         }//.face
       }//.resouce-inner
