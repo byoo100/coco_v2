@@ -132,7 +132,17 @@ include_once('page-data/data-frontpage.php');
 
         <div class="home-container">
 
-          <h1 class="home-title">RESOURCES</h1>
+          <h1 class="home-title">
+            <?php if( $lang_KOR ){
+              echo $data['resources']['kr']['title'];
+              echo '<span class="title-translation">';
+              echo $data['resources']['en']['title'];
+              echo '</span>';
+            } else {
+              echo $data['resources']['en']['title'];
+            } ?>
+          </h1>
+
 
           <?php
             $resources = array('resource1', 'resource2', 'resource3', 'resource4');
@@ -189,6 +199,29 @@ include_once('page-data/data-frontpage.php');
 
           <?php endfor; ?>
 
+
+        </div>
+
+      </section>
+
+
+
+      <section id="home-contact">
+
+        <div class="home-container">
+
+          <h1 class="home-title">
+            <?php if( $lang_KOR ){
+              echo $data['contact']['kr']['title'];
+              echo '<span class="title-translation">';
+              echo $data['contact']['en']['title'];
+              echo '</span>';
+            } else {
+              echo $data['contact']['en']['title'];
+            } ?>
+          </h1>
+
+          <?php echo do_shortcode('[contact-form-7 id="2049" title="Contact form 1"]') ?>
 
         </div>
 

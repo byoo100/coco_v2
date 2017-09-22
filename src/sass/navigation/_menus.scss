@@ -1,3 +1,25 @@
+$nav-height-xs: 3.75rem; //60px
+$nav-height-lg: 5rem; //80px;
+$nav-desktop: $screen-md;
+
+#content{
+	margin-top: $nav-height-xs;
+
+	@media screen and (min-width: nav-desktop){
+		margin-top: $nav-height-lg;
+	}
+}//#content
+
+
+@mixin navHeight{
+	height: $nav-height-xs; //60px
+
+	@media screen and (min-width: $screen-md){
+		height: $nav-height-lg; //80px
+	}
+}//navHeight
+
+
 #dark-overlay{
 	display: none;
 	position: fixed;
@@ -11,26 +33,29 @@
 		display: block;
 	}
 
-	@media screen and (min-width: $screen-md){ display: none; }
+	@media screen and (min-width: $nav-desktop){ display: none; }
 }//#dark-overlay
 
 
 #masthead{
-	position: relative;
+	@include navHeight;
+	position: fixed;
+	width: 100%;
 	background: $color__nav_background;
-	top: 0 !important;
-	width: 100% !important;
 	z-index:9999;
-	transition: top 300ms ease-in-out;
 
 
 	.masthead-container{
+		@include site-container();
+		@include navHeight;
 		position: relative;
+		width: 100%;
+		background: $color__nav_background;
 
 		.nav-header{
 			display: block;
-			padding: 0 1em;
 			position: relative;
+			padding: 0 1em;
 			height: $nav-height-xs;
 
 			.site-branding{
@@ -54,7 +79,7 @@
 				border: none;
 				background: none;
 
-				@media screen and (min-width: $screen-md){ display: none; }
+				@media screen and (min-width: $nav-desktop){ display: none; }
 
 				.icon-bar{
 					display: block;
@@ -66,7 +91,7 @@
 					& + .icon-bar {
 				    margin-top: 4px;
 					}
-				}
+				}//.icon-bar
 			}//.mobile-open
 
 		}//.nav-header
@@ -119,7 +144,7 @@
 		    	transform: rotate(-45deg);
 				}
 
-				@media screen and (min-width: $screen-md){ display: none; }
+				@media screen and (min-width: $nav-desktop){ display: none; }
 
 			}//#mobile-close
 
@@ -222,15 +247,12 @@
 }//#masthead
 
 
+
 #masthead{
 
 	.masthead-container{
 
-		@media screen and (min-width: $screen-md){
-			//#masthead-container
-			@include site-container();
-			height: $nav-height-lg; //80px
-
+		@media screen and (min-width: $nav-desktop){
 
 			.nav-header{
 				display: inline-block;

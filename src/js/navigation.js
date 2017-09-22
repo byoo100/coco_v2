@@ -5,8 +5,6 @@
  * navigation support for dropdown menus.
  */
 
-const ScrollMagic = require('scrollmagic');
-const ScrollScene = require('scrollmagic');
 
 ( function($) {
 
@@ -27,13 +25,11 @@ const ScrollScene = require('scrollmagic');
 	});
 
 	$mobileClose.click(() => {
-		$navigation.removeClass('active');
-		$darkOverlay.removeClass('active');
+		closeMenu();
 	});
 
 	$darkOverlay.click(() => {
-		$navigation.removeClass('active');
-		$darkOverlay.removeClass('active');
+		closeMenu();
 	});
 
 	$langToggle.click(() => {
@@ -41,15 +37,58 @@ const ScrollScene = require('scrollmagic');
 	});
 
 
-	// init controller
+	function closeMenu() {
+		$navigation.removeClass('active');
+		$darkOverlay.removeClass('active');
+	}
 
-	var controller = new ScrollMagic.Controller();
 
-	var pin = new ScrollMagic.Scene({
-		triggerElement: "#home-welcome",
-		triggerHook: "onEnter",
-	}).setPin('#masthead')
-		.addTo(controller)
+
+
+		var navOffset = ( window.innerWidth < 992 ) ? 60 : 80;
+
+		$(window).resize(() => {
+			navOffset = ( window.innerWidth < 992 ) ? 60 : 80;
+		});
+
+
+		// Anchor Scroll Links
+		$('#primary-menu a[href*="#"]')
+		  // Remove links that don't actually link to anything
+		  .not('[href="#"]')
+		  .not('[href="#0"]')
+		  .click(function(event) {
+		    // On-page links
+		    if (
+		      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+		      &&
+		      location.hostname == this.hostname
+		    ) {
+		      // Figure out element to scroll to
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		      // Does a scroll target exist?
+		      if (target.length) {
+		        // Only prevent default if animation is actually gonna happen
+		        event.preventDefault();
+						closeMenu();
+		        $('html, body').animate({
+		          scrollTop: target.offset().top - navOffset
+		        }, 1000, function() {
+		          // Callback after animation
+		          // Must change focus!
+		          var $target = $(target);
+		          $target.focus();
+		          if ($target.is(":focus")) { // Checking if the target was focused
+		            return false;
+		          } else {
+		            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+		            $target.focus(); // Set focus again
+		          };
+		        });
+		      }
+		    }
+		  });
 
 
 } )(jQuery);

@@ -1,18 +1,20 @@
 <?php
 
 $data = array(
+
   'welcome' => array(
     'title' => "C.O.C.O.",
     'subtitle1' => "The Center for Opportunities,",
     'subtitle2' => "Choices and Outcomes"
   ),
+
   'about' => array(
     'en' => array(
       'title' => "ABOUT US",
       'text' => "COCO is a unique non-profit organization that was approved by the state of New York that has been established by the community and the families of children with disabilities. On November 4th 2000, they joined together in order to reach a common goal: to provide services that are essential to the overall growth of the children with disabilities and to aid their families in any way possible.",
     ),
     'kr' => array(
-      'title' => "COCO는...",
+      'title' => "코코는...",
       'text' => "장애를 가진 그 가족의 일원으로써, 또 더불어 사는 이웃으로써 각자의 독립성과, 존엄성,삶의 질을 극대화하고 나아가 더 나은 사회를 만들기 위한 단체입니다.",
     )
   ),
@@ -32,6 +34,7 @@ $data = array(
 
   'resources' => array(
     'en' => array(
+      'title' => 'RESOURCES',
       'resource1' => array(
         'title' => "Case Management & Outreach",
         'text' => "COCO is connected to a network of services and programs, which enables us to provide information about the best and most appropriate programs available for children with disabilities. We recognize that maximizing the independence of the children with disabilities and their family members is the path to living in harmony with our community."
@@ -50,6 +53,7 @@ $data = array(
       )
     ),
     'kr' => array(
+      'title' => '코코 안내',
       'resource1' => array(
         'title' => "사례의 발견과 관리",
         'text' => "써비스를 필요로 하는 사람들에게 가장 적절한 프로그램을 제공하고,그 사이의 다리역활 목적으로 하고 있습니다. 장애아동과 가족의 독립성을 강화하는 것이 더불어 공동체와 하나가 되는 길임을 인지하고 그 가족의 필요를 채우기 위한 여러 프로그램을 제공, 계획중에 있습니다."
@@ -66,6 +70,15 @@ $data = array(
         'title' => "가족 교육과 훈련",
         'text' => "장애아동의 가족 구성원들에게 의무와 권리, 관련된 법규에 대한 정보를 제공하고,유용한 교육내용의 소개와 훈련,상담이 이루어집니다. 학교나 기관에서 습득한 기술과 교육이 가정내에서 이해되고, 일관되게 행해지지 않는다면 교육의 성과가 떨어질뿐 아니라가족의 부담감과 고립감이 더 커지게 될 것 입니다."
       )
+    )
+  ),
+
+  'contact' => array(
+    'en' => array(
+      'title' => "CONTACT US"
+    ),
+    'kr' => array(
+      'title' => "문의하기"
     )
   ),
 
