@@ -119,7 +119,7 @@
 
     #google-map{
       width: 100%;
-      min-height: 18.75rem;
+      height: 18.75rem;
       padding: 0 2em;
     }//#google-map
 
@@ -178,6 +178,7 @@
             color: #efefef;
             text-align: center;
             word-break: keep-all;
+            backface-visibility: hidden;
 
             @media screen and (min-width: $screen-md){ font-size: 2em; }
             @media screen and (min-width: $screen-xl){ font-size: 2.2em; }
@@ -188,9 +189,9 @@
               font-style: italic;
               color: #eee;
               word-break: keep-all;
+              backface-visibility: hidden;
             }
-
-          }
+          }//.resource-title
 
           img{
             display: block;
